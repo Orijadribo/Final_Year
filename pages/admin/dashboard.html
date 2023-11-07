@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <title>Admin Panel</title>
+  </head>
+  <body>
+    <div class="m-auto h-screen">
+      <div class="bg-slate-100">
+        <div class="p-5">
+          <h1 class="font-extrabold text-2xl">Admin Panel</h1>
+        </div>
+      </div>
+      <div class="flex h-screen">
+        <div class="w-[400px] bg-green-400">
+          <div class="flex items-end justify-center p-5">
+            <h1 class="font-extrabold text-4xl">Finance Guy</h1>
+          </div>
+          <ul class="pt-5 pl-10">
+            <li
+              id="homeSide"
+              onclick="showElementHome()"
+              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+            >
+              Home
+            </li>
+            <li
+              id="verificationSide"
+              onclick="showElementVerification()"
+              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+            >
+              Verification Queue
+            </li>
+            <li
+              id="verifiedSide"
+              onclick="showElementVerified()"
+              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+            >
+              Verified Items
+            </li>
+            <li
+              id="flaggedSide"
+              onclick="showElementFlagged()"
+              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+            >
+              Flagged Items
+            </li>
+            <li
+              id="settingsSide"
+              onclick="showElementSettings()"
+              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+            >
+              Settings
+            </li>
+          </ul>
+        </div>
+        <div class="w-screen pt-5">
+          <!-- Home -->
+          <div id="home" class="border hidden">
+            <div class="flex flex-col items-center justify-center">
+              <h1 class="p-5">Verification Queue</h1>
+              <p>
+                List of pending verification requests with basic transaction
+                details
+              </p>
+              <div class="flex p-5">
+                <div class="p-2">
+                  <button class="border p-2" type="button">
+                    Flag for Review
+                  </button>
+                </div>
+                <div class="p-2">
+                  <button class="border rounded-[20px] p-2" type="button">
+                    Manual Verification
+                  </button>
+                </div>
+              </div>
+              <hr class="w-10" />
+              <div>
+                <h1>Pending Verification requests</h1>
+              </div>
+            </div>
+          </div>
+
+          <!-- Verification Queue -->
+          <div id="verification" class="px-10 py-2">
+            <h1 class="font-bold text-2xl">Verification Queue</h1>
+            <div class="py-5">
+              <div class="flex justify-between py-5">
+                <div>
+                  <h3 class="font-bold">Transaction 1</h3>
+                  <p>Amount $100</p>
+                </div>
+                <div class="flex flex-col items-center justify-center pr-20">
+                  <h3 class="font-bold">Status</h3>
+                  <p>Pending</p>
+                </div>
+              </div>
+              <hr />
+              <div class="flex justify-between py-5">
+                <div>
+                  <h3 class="font-bold">Transaction 2</h3>
+                  <p>Amount $100</p>
+                </div>
+                <div class="flex flex-col items-center justify-center pr-20">
+                  <h3 class="font-bold">Status</h3>
+                  <p>Pending</p>
+                </div>
+              </div>
+              <hr />
+              <div class="flex justify-between py-5">
+                <div>
+                  <h3 class="font-bold">Transaction 3</h3>
+                  <p>Amount $100</p>
+                </div>
+                <div class="flex flex-col items-center justify-center pr-20">
+                  <h3 class="font-bold">Status</h3>
+                  <p>Pending</p>
+                </div>
+              </div>
+              <hr />
+            </div>
+          </div>
+
+          <!-- Verified Items -->
+          <div id="verified" class="hidden px-10 py-2">
+            <div class="">
+              <h2 class="font-bold text-2xl">Verified Items</h2>
+              <div class="py-5">
+                <div class="flex justify-between py-5">
+                  <div>
+                    <h3 class="font-bold">Transaction 1</h3>
+                    <p>Amount $100</p>
+                  </div>
+                  <div class="flex flex-col items-center justify-center pr-20">
+                    <h3 class="font-bold">Status</h3>
+                    <p>Verified</p>
+                  </div>
+                </div>
+                <hr />
+                <div class="flex justify-between py-5">
+                  <div>
+                    <h3 class="font-bold">Transaction 2</h3>
+                    <p>Amount $100</p>
+                  </div>
+                  <div class="flex flex-col items-center justify-center pr-20">
+                    <h3 class="font-bold">Status</h3>
+                    <p>Verified</p>
+                  </div>
+                </div>
+                <hr />
+                <div class="flex justify-between py-5">
+                  <div>
+                    <h3 class="font-bold">Transaction 3</h3>
+                    <p>Amount $100</p>
+                  </div>
+                  <div class="flex flex-col items-center justify-center pr-20">
+                    <h3 class="font-bold">Status</h3>
+                    <p>Verified</p>
+                  </div>
+                </div>
+                <hr />
+              </div>
+            </div>
+          </div>
+
+          <!-- Flagged Items -->
+          <div id="flagged" class="hidden px-10 py-2">
+            <h1 class="font-bold text-2xl">Flagged Items</h1>
+            <div class="py-5">
+              <div class="flex justify-between py-5">
+                <div>
+                  <h3 class="font-bold">Transaction 1</h3>
+                  <p>Amount $100</p>
+                </div>
+                <div class="flex flex-col items-center justify-center pr-20">
+                  <h3 class="font-bold">Status</h3>
+                  <p>Pending</p>
+                </div>
+              </div>
+              <hr />
+              <div class="flex justify-between py-5">
+                <div>
+                  <h3 class="font-bold">Transaction 2</h3>
+                  <p>Amount $100</p>
+                </div>
+                <div class="flex flex-col items-center justify-center pr-20">
+                  <h3 class="font-bold">Status</h3>
+                  <p>Review</p>
+                </div>
+              </div>
+              <hr />
+              <div class="flex justify-between py-5">
+                <div>
+                  <h3 class="font-bold">Transaction 3</h3>
+                  <p>Amount $100</p>
+                </div>
+                <div class="flex flex-col items-center justify-center pr-20">
+                  <h3 class="font-bold">Status</h3>
+                  <p>Denied</p>
+                </div>
+              </div>
+              <hr />
+            </div>
+          </div>
+
+          <!-- Settings -->
+          <div id="settings" class="hidden">
+            <h1>Settings</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showElementHome() {
+        var elementHome = document.getElementById("home");
+        var elementverified = document.getElementById("verified");
+        var elementverification = document.getElementById("verification");
+        var elementflagged = document.getElementById("flagged");
+        var elementSettings = document.getElementById("settings");
+
+        var elementHomeSide = document.getElementById("homeSide");
+        var elementverificationSide = document.getElementById("verificationSide");
+        var elementverifiedSide = document.getElementById("verifiedSide");
+        var elementflaggedSide = document.getElementById("flaggedSide");
+        var elementsettingsSide = document.getElementById("settingsSide");
+
+        //Showing the different elements basing on user selection 
+        elementHome.classList.remove("hidden");
+        elementverified.classList.add("hidden");
+        elementverification.classList.add("hidden");
+        elementflagged.classList.add("hidden");
+        elementSettings.classList.add("hidden");
+
+        //Adding a background color to user selected item 
+        elementHomeSide.classList.add("bg-slate-200");
+        elementverificationSide.classList.remove("bg-slate-200");
+        elementverifiedSide.classList.remove("bg-slate-200");
+        elementflaggedSide.classList.remove("bg-slate-200");
+        elementsettingsSide.classList.remove("bg-slate-200");
+      }
+
+      function showElementVerified() {
+        var elementHome = document.getElementById("home");
+        var elementverified = document.getElementById("verified");
+        var elementverification = document.getElementById("verification");
+        var elementflagged = document.getElementById("flagged");
+        var elementSettings = document.getElementById("settings");
+
+        var elementHomeSide = document.getElementById("homeSide");
+        var elementverificationSide = document.getElementById("verificationSide");
+        var elementverifiedSide = document.getElementById("verifiedSide");
+        var elementflaggedSide = document.getElementById("flaggedSide");
+        var elementsettingsSide = document.getElementById("settingsSide");
+
+        elementHome.classList.add("hidden");
+        elementverified.classList.remove("hidden");
+        elementverification.classList.add("hidden");
+        elementflagged.classList.add("hidden");
+        elementSettings.classList.add("hidden");
+
+         //Adding a background color to user selected item 
+        elementHomeSide.classList.remove("bg-slate-200");
+        elementverificationSide.classList.add("bg-slate-200");
+        elementverifiedSide.classList.remove("bg-slate-200");
+        elementflaggedSide.classList.remove("bg-slate-200");
+        elementsettingsSide.classList.remove("bg-slate-200");
+      }
+
+      function showElementVerification() {
+        var elementHome = document.getElementById("home");
+        var elementverified = document.getElementById("verified");
+        var elementverification = document.getElementById("verification");
+        var elementflagged = document.getElementById("flagged");
+        var elementSettings = document.getElementById("settings");
+
+        elementHome.classList.add("hidden");
+        elementverified.classList.add("hidden");
+        elementverification.classList.remove("hidden");
+        elementflagged.classList.add("hidden");
+        elementSettings.classList.add("hidden");
+      }
+
+      function showElementFlagged() {
+        var elementHome = document.getElementById("home");
+        var elementverified = document.getElementById("verified");
+        var elementverification = document.getElementById("verification");
+        var elementflagged = document.getElementById("flagged");
+        var elementSettings = document.getElementById("settings");
+
+        elementHome.classList.add("hidden");
+        elementverified.classList.add("hidden");
+        elementverification.classList.add("hidden");
+        elementflagged.classList.remove("hidden");
+        elementSettings.classList.add("hidden");
+      }
+
+      function showElementSettings() {
+        var elementHome = document.getElementById("home");
+        var elementverified = document.getElementById("verified");
+        var elementverification = document.getElementById("verification");
+        var elementflagged = document.getElementById("flagged");
+        var elementSettings = document.getElementById("settings");
+
+        elementHome.classList.add("hidden");
+        elementverified.classList.add("hidden");
+        elementverification.classList.add("hidden");
+        elementflagged.classList.add("hidden");
+        elementSettings.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

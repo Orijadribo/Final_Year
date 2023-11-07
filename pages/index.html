@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <title>Bank Slip Verification</title>
+  </head>
+  <body>
+    <div
+      class="flex items-center justify-center w-screen bg-[] bg-cover bg-center h-screen"
+    >
+      <div
+        class="flex flex-col items-center justify-center rounded-lg w-[600px] p-10 bg-white/[0.1]"
+      >
+        <div class="flex flex-col items-center justify-center p-5">
+          <img
+            src="data:image/png;base64,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"
+            alt="KIU Logo"
+          />
+          <h1 class="pt-5 font-medium text-xl">Bank Slip Verification Login</h1>
+        </div>
+        <form class="flex flex-col w-full" action="">
+          <label class="pb-2" for="email">Email</label>
+          <input class="border rounded-lg p-2 mb-5" id="email" type="email" />
+          <label class="pb-2" for="password">Password</label>
+          <input class="border rounded-lg p-2 mb-5" id="password" type="password" />
+        </form>
+        <div class="flex items-center justify-between w-full pb-5">
+          <a class="text-sm" href="">Forgot your password?</a>
+          <div class="flex items-center justify-center">
+            <input
+            type="checkbox"
+            id="remember"
+            name="remember"
+            value="Remember me"
+            />
+            <label class="pl-2 text-sm" for="remember">Remember me?</label>
+          </div>
+        </div>
+        <button class="w-full rounded-lg py-2 bg-green-700" type="button">
+          Login
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
