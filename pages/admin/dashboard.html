@@ -22,35 +22,35 @@
             <li
               id="homeSide"
               onclick="showElementHome()"
-              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+              class="py-2 px-5 cursor-pointer hover:bg-slate-200 bg-slate-200 rounded-l-xl mb-2"
             >
               Home
             </li>
             <li
               id="verificationSide"
               onclick="showElementVerification()"
-              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl mb-2"
             >
               Verification Queue
             </li>
             <li
               id="verifiedSide"
               onclick="showElementVerified()"
-              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl mb-2"
             >
               Verified Items
             </li>
             <li
               id="flaggedSide"
               onclick="showElementFlagged()"
-              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl mb-2"
             >
               Flagged Items
             </li>
             <li
               id="settingsSide"
               onclick="showElementSettings()"
-              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl mb-2"
             >
               Settings
             </li>
@@ -58,7 +58,7 @@
         </div>
         <div class="w-screen pt-5">
           <!-- Home -->
-          <div id="home" class="border hidden">
+          <div id="home" class="border ">
             <div class="flex flex-col items-center justify-center">
               <h1 class="p-5">Verification Queue</h1>
               <p>
@@ -77,7 +77,7 @@
                   </button>
                 </div>
               </div>
-              <hr class="w-10" />
+              <hr class="" />
               <div>
                 <h1>Pending Verification requests</h1>
               </div>
@@ -85,7 +85,7 @@
           </div>
 
           <!-- Verification Queue -->
-          <div id="verification" class="px-10 py-2">
+          <div id="verification" class="px-10 py-2 hidden">
             <h1 class="font-bold text-2xl">Verification Queue</h1>
             <div class="py-5">
               <div class="flex justify-between py-5">
@@ -129,7 +129,7 @@
             <div class="">
               <h2 class="font-bold text-2xl">Verified Items</h2>
               <div class="py-5">
-                <div class="flex justify-between py-5">
+                <div onclick="showDetails()" class="flex justify-between py-5">
                   <div>
                     <h3 class="font-bold">Transaction 1</h3>
                     <p>Amount $100</p>
@@ -210,6 +210,16 @@
           <div id="settings" class="hidden">
             <h1>Settings</h1>
           </div>
+
+          <!-- Individual transactions -->
+          <div id="details" class="">
+            <div>
+              <h1>Amount</h1>
+            </div>
+          </div>
+
+
+
         </div>
       </div>
     </div>
@@ -243,6 +253,33 @@
         elementsettingsSide.classList.remove("bg-slate-200");
       }
 
+      function showElementVerification() {
+        var elementHome = document.getElementById("home");
+        var elementverified = document.getElementById("verified");
+        var elementverification = document.getElementById("verification");
+        var elementflagged = document.getElementById("flagged");
+        var elementSettings = document.getElementById("settings");
+
+        var elementHomeSide = document.getElementById("homeSide");
+        var elementverificationSide = document.getElementById("verificationSide");
+        var elementverifiedSide = document.getElementById("verifiedSide");
+        var elementflaggedSide = document.getElementById("flaggedSide");
+        var elementsettingsSide = document.getElementById("settingsSide");
+
+        elementHome.classList.add("hidden");
+        elementverified.classList.add("hidden");
+        elementverification.classList.remove("hidden");
+        elementflagged.classList.add("hidden");
+        elementSettings.classList.add("hidden");
+
+        //Adding a background color to user selected item 
+        elementHomeSide.classList.remove("bg-slate-200");
+        elementverificationSide.classList.add("bg-slate-200");
+        elementverifiedSide.classList.remove("bg-slate-200");
+        elementflaggedSide.classList.remove("bg-slate-200");
+        elementsettingsSide.classList.remove("bg-slate-200");
+      }
+
       function showElementVerified() {
         var elementHome = document.getElementById("home");
         var elementverified = document.getElementById("verified");
@@ -264,24 +301,10 @@
 
          //Adding a background color to user selected item 
         elementHomeSide.classList.remove("bg-slate-200");
-        elementverificationSide.classList.add("bg-slate-200");
-        elementverifiedSide.classList.remove("bg-slate-200");
+        elementverificationSide.classList.remove("bg-slate-200");
+        elementverifiedSide.classList.add("bg-slate-200");
         elementflaggedSide.classList.remove("bg-slate-200");
         elementsettingsSide.classList.remove("bg-slate-200");
-      }
-
-      function showElementVerification() {
-        var elementHome = document.getElementById("home");
-        var elementverified = document.getElementById("verified");
-        var elementverification = document.getElementById("verification");
-        var elementflagged = document.getElementById("flagged");
-        var elementSettings = document.getElementById("settings");
-
-        elementHome.classList.add("hidden");
-        elementverified.classList.add("hidden");
-        elementverification.classList.remove("hidden");
-        elementflagged.classList.add("hidden");
-        elementSettings.classList.add("hidden");
       }
 
       function showElementFlagged() {
@@ -291,11 +314,24 @@
         var elementflagged = document.getElementById("flagged");
         var elementSettings = document.getElementById("settings");
 
+        var elementHomeSide = document.getElementById("homeSide");
+        var elementverificationSide = document.getElementById("verificationSide");
+        var elementverifiedSide = document.getElementById("verifiedSide");
+        var elementflaggedSide = document.getElementById("flaggedSide");
+        var elementsettingsSide = document.getElementById("settingsSide");
+
         elementHome.classList.add("hidden");
         elementverified.classList.add("hidden");
         elementverification.classList.add("hidden");
         elementflagged.classList.remove("hidden");
         elementSettings.classList.add("hidden");
+
+        //Adding a background color to user selected item 
+        elementHomeSide.classList.remove("bg-slate-200");
+        elementverificationSide.classList.remove("bg-slate-200");
+        elementverifiedSide.classList.remove("bg-slate-200");
+        elementflaggedSide.classList.add("bg-slate-200");
+        elementsettingsSide.classList.remove("bg-slate-200");
       }
 
       function showElementSettings() {
@@ -305,11 +341,28 @@
         var elementflagged = document.getElementById("flagged");
         var elementSettings = document.getElementById("settings");
 
+        var elementHomeSide = document.getElementById("homeSide");
+        var elementverificationSide = document.getElementById("verificationSide");
+        var elementverifiedSide = document.getElementById("verifiedSide");
+        var elementflaggedSide = document.getElementById("flaggedSide");
+        var elementsettingsSide = document.getElementById("settingsSide");
+
         elementHome.classList.add("hidden");
         elementverified.classList.add("hidden");
         elementverification.classList.add("hidden");
         elementflagged.classList.add("hidden");
         elementSettings.classList.remove("hidden");
+
+        //Adding a background color to user selected item 
+        elementHomeSide.classList.remove("bg-slate-200");
+        elementverificationSide.classList.remove("bg-slate-200");
+        elementverifiedSide.classList.remove("bg-slate-200");
+        elementflaggedSide.classList.remove("bg-slate-200");
+        elementsettingsSide.classList.add("bg-slate-200");
+      }
+
+      function showDetails(){
+
       }
     </script>
   </body>
