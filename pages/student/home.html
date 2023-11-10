@@ -24,11 +24,11 @@
 
     <!-- Header section -->
 
-    <div class="bg-slate-100">
+    <!-- <div class="bg-[#F4F6F9] shadow-xl">
       <div class="p-5">
         <h1 class="font-extrabold text-2xl">Student Dashboard</h1>
       </div>
-    </div>
+    </div> -->
 
     <!-- Main content section -->
 
@@ -36,15 +36,19 @@
 
       <!-- Sidebar section -->
 
-      <div class="w-[400px] bg-[#02B056] hidden md:block">
+      <div class="w-[400px] h-screen bg-[#FFFFF] hidden md:block shadow-2xl">
+        <div class="flex gap-2 p-8 item-center justify-center">
+          <div class="p-1 flex items-center"><i class="fa-solid fa-graduation-cap fa-xl" style="color: #02b056;"></i></div>
+          <h1 class="font-bold text-[24px]">Student Dashboard</h1>
+        </div>
 
         <!-- User profile info -->
-
-        <div class="flex flex-col items-end justify-center p-5">
+<!-- 
+        <div class="flex flex-col items-start justify-center p-5">
           <div class="rounded-full bg-slate-500 h-20 w-20 m-2"></div>
           <h1 class="font-extrabold text-4xl">Daniel Orija</h1>
           <p class="font-bold">2020-08-01895</p>
-        </div>
+        </div> -->
 
         <!-- Sidebar navigation menu -->
 
@@ -69,7 +73,7 @@
 
       <!-- Main content area -->
 
-      <div class="w-screen pt-10">
+      <div class="w-screen pt-10 bg-[#F4F6F9]">
 
         <!-- Verification Queue -->
         <div id="home" class="px-10 py-2">
@@ -165,6 +169,8 @@
               <input type="number" name="amount" id="amount" class="border p-2 px-2 mb-5 rounded-md" />
               <label for="date" class="pb-2">Date</label>
               <input type="date" name="date" id="date" class="border p-2 px-2 mb-5 rounded-md" />
+              <label for="regNo" class="pb-2">Registration Number</label>
+              <input type="text" name="payer" id="regNo" class="border p-2 px-2 mb-5 rounded-md" />
               <label for="payer" class="pb-2">Payer/Payee Information</label>
               <input type="text" name="payer" id="payer" class="border p-2 px-2 mb-5 rounded-md" />
 
@@ -172,7 +178,7 @@
               <!-- File Input -->
               <div class="flex items-center justify-center ">
                 <label for="dropzone-file"
-                  class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-[#02B056]/[0.3] hover:bg-[#02B056]/[0.1] ">
+                  class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-[#02B056]/[0.1] hover:bg-[#02B056]/[0.3] ">
                   <div class="flex flex-col items-center justify-center pt-5 pb-6">
                     <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
@@ -207,7 +213,7 @@
         <!-- Transaction List -->
         <div id="transactions" class="hidden px-10 py-2">
           <div class="">
-            <h2 class="font-bold text-2xl">Transaction List</h2>
+            <h2 class="font-bold text-2xl">History</h2>
           </div>
           <div class="py-5">
             <div class="flex justify-between py-5">
