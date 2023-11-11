@@ -36,14 +36,16 @@
 
       <!-- Sidebar section -->
 
-      <div class="w-[400px] h-screen bg-[#FFFFF] hidden md:block shadow-2xl">
+      <div id="sideBar" class="md:w-[25%] h-full bg-white hidden md:block shadow-2xl top-0 left-0 fixed pt-10">
         <div class="flex gap-2 p-8 item-center justify-center">
-          <div class="p-1 flex items-center"><i class="fa-solid fa-graduation-cap fa-xl" style="color: #02b056;"></i></div>
+          <div class="p-1 flex items-center">
+            <i class="fa-solid fa-graduation-cap fa-xl" style="color: #02b056;"></i>
+          </div>
           <h1 class="font-bold text-[24px]">Student Dashboard</h1>
         </div>
 
         <!-- User profile info -->
-<!-- 
+        <!-- 
         <div class="flex flex-col items-start justify-center p-5">
           <div class="rounded-full bg-slate-500 h-20 w-20 m-2"></div>
           <h1 class="font-extrabold text-4xl">Daniel Orija</h1>
@@ -54,29 +56,55 @@
 
         <ul class="pt-5 pl-10">
           <li onclick="showElementHome()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
-            Home
+            <div class="flex gap-5">
+              <div class=""><i class="fa-solid fa-house"></i></div>
+              Home
+            </div>
           </li>
           <li onclick="showElementUpload()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
-            Upload
+            <div class="flex gap-5">
+              <div class=""><i class="fa-solid fa-upload"></i></div>
+              Upload
+            </div>
           </li>
           <li onclick="showElementTransactions()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
-            Transactions
+            <div class="flex gap-5">
+              <div class=""><i class="fa-solid fa-clock-rotate-left"></i></div>
+              History
+            </div>
           </li>
           <li onclick="showElementNotifications()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
-            Notifications
+            <div class="flex gap-5">
+              <div class=""><i class="fa-solid fa-bell"></i></div>
+              Notifications
+            </div>
           </li>
           <li onclick="showElementSettings()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
-            Settings
+            <div class="flex gap-5">
+              <div class=""><i class="fa-solid fa-gear"></i></div>
+              Settings
+            </div>
           </li>
         </ul>
       </div>
 
       <!-- Main content area -->
 
-      <div class="w-screen pt-10 bg-[#F4F6F9]">
+      <!-- Options bar -->
+      <div class="flex items-center justify-between bg-white w-full p-2 md:hidden fixed top-0 left-0">
+        <div class="" onclick="sideBarOpen()">
+          <i class="fa-solid fa-bars fa-xl p-2"></i>
+        </div>
+        <div class="flex flex-col items-start justify-center pr-2 ">
+          <div class="rounded-full bg-slate-500 h-10 w-10 m-2"></div>
+
+        </div>
+      </div>
+      <div class="flex w-screen pt-10 bg-[#F4F6F9] md:ml-[25%]">
+
 
         <!-- Verification Queue -->
-        <div id="home" class="px-10 py-2">
+        <div id="home" class="px-5 md:px-10 py-10 md:py-5">
           <h1 class="font-bold text-2xl">Home</h1>
 
           <div class="flex flex-col items-center justify-center">
@@ -210,7 +238,7 @@
           </div>
         </div>
 
-        <!-- Transaction List -->
+        <!-- History -->
         <div id="transactions" class="hidden px-10 py-2">
           <div class="">
             <h2 class="font-bold text-2xl">History</h2>
@@ -365,6 +393,10 @@
       elementUpload.classList.add("hidden");
       elementNotifications.classList.add("hidden");
       elementSettings.classList.remove("hidden");
+    }
+
+    function sideBarOpen() {
+      document.getElementById("sideBar").style.display = "block";
     }
   </script>
 </body>
