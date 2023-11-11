@@ -40,6 +40,7 @@
         <div class="flex gap-2 p-8 item-center justify-center">
           <div class="p-1 flex items-center">
             <i class="fa-solid fa-graduation-cap fa-xl" style="color: #02b056;"></i>
+            
           </div>
           <h1 class="font-bold text-[24px]">Student Dashboard</h1>
         </div>
@@ -55,31 +56,31 @@
         <!-- Sidebar navigation menu -->
 
         <ul class="pt-5 pl-10">
-          <li onclick="showElementHome()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
+          <li onclick="showElementHome(), sideBarClose()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
             <div class="flex gap-5">
               <div class=""><i class="fa-solid fa-house"></i></div>
               Home
             </div>
           </li>
-          <li onclick="showElementUpload()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
+          <li onclick="showElementUpload(), sideBarClose()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
             <div class="flex gap-5">
               <div class=""><i class="fa-solid fa-upload"></i></div>
               Upload
             </div>
           </li>
-          <li onclick="showElementTransactions()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
+          <li onclick="showElementTransactions(), sideBarClose()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
             <div class="flex gap-5">
               <div class=""><i class="fa-solid fa-clock-rotate-left"></i></div>
               History
             </div>
           </li>
-          <li onclick="showElementNotifications()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
+          <li onclick="showElementNotifications(), sideBarClose()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
             <div class="flex gap-5">
               <div class=""><i class="fa-solid fa-bell"></i></div>
               Notifications
             </div>
           </li>
-          <li onclick="showElementSettings()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
+          <li onclick="showElementSettings(), sideBarClose()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
             <div class="flex gap-5">
               <div class=""><i class="fa-solid fa-gear"></i></div>
               Settings
@@ -92,12 +93,14 @@
 
       <!-- Options bar -->
       <div class="flex items-center justify-between bg-white w-full p-2 md:hidden fixed top-0 left-0">
-        <div class="" onclick="sideBarOpen()">
+        <div id="open" class="" onclick="sideBarOpen()">
           <i class="fa-solid fa-bars fa-xl p-2"></i>
+        </div>
+        <div id="close" class="hidden" onclick="sideBarClose()">
+          <i class="fa-solid fa-xmark fa-xl p-2"></i>
         </div>
         <div class="flex flex-col items-start justify-center pr-2 ">
           <div class="rounded-full bg-slate-500 h-10 w-10 m-2"></div>
-
         </div>
       </div>
       <div class="flex w-screen pt-10 bg-[#F4F6F9] md:ml-[25%]">
@@ -397,6 +400,20 @@
 
     function sideBarOpen() {
       document.getElementById("sideBar").style.display = "block";
+      var elementOpen = document.getElementById("open");
+      var elementClose = document.getElementById("close");
+      
+      elementOpen.classList.add("hidden");
+      elementClose.classList.remove("hidden");
+    }
+
+    function sideBarClose() {
+      document.getElementById("sideBar").style.display = "none";
+      var elementOpen = document.getElementById("open");
+      var elementClose = document.getElementById("close");
+      
+      elementOpen.classList.remove("hidden");
+      elementClose.classList.add("hidden");
     }
   </script>
 </body>
