@@ -56,31 +56,31 @@
         <!-- Sidebar navigation menu -->
 
         <ul class="pt-5 pl-10">
-          <li onclick="showElementHome(), sideBarClose()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
+          <li onclick="showElementHome()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
             <div class="flex gap-5">
               <div class=""><i class="fa-solid fa-house"></i></div>
               Home
             </div>
           </li>
-          <li onclick="showElementUpload(), sideBarClose()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
+          <li onclick="showElementUpload()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
             <div class="flex gap-5">
               <div class=""><i class="fa-solid fa-upload"></i></div>
               Upload
             </div>
           </li>
-          <li onclick="showElementTransactions(), sideBarClose()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
+          <li onclick="showElementTransactions()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
             <div class="flex gap-5">
               <div class=""><i class="fa-solid fa-clock-rotate-left"></i></div>
               History
             </div>
           </li>
-          <li onclick="showElementNotifications(), sideBarClose()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
+          <li onclick="showElementNotifications()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
             <div class="flex gap-5">
               <div class=""><i class="fa-solid fa-bell"></i></div>
               Notifications
             </div>
           </li>
-          <li onclick="showElementSettings(), sideBarClose()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
+          <li onclick="showElementSettings()" class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl">
             <div class="flex gap-5">
               <div class=""><i class="fa-solid fa-gear"></i></div>
               Settings
@@ -103,44 +103,45 @@
           <div class="rounded-full bg-slate-500 h-10 w-10 m-2"></div>
         </div>
       </div>
-      <div class="flex w-screen pt-10 bg-[#F4F6F9] md:ml-[25%]">
 
 
-        <!-- Verification Queue -->
-        <div id="home" class="px-5 md:px-10 py-10 md:py-5">
+      <div class="flex items-center justify-center w-screen pt-10 bg-[#F4F6F9] md:ml-[25%]">
+
+        <!-- Home -->
+        <div id="home" class="px-10 py-12 md:py-2 w-full">
           <h1 class="font-bold text-2xl">Home</h1>
 
           <div class="flex flex-col items-center justify-center">
-            <h1 class="p-5">Analytics</h1>
+            <h1 class="p-5 font-bold text-lg">Analytics</h1>
 
-            <div class="flex">
-              <div class="flex-1 flex items-center justify-around p-10">
-                <div class="border rounded-lg w-[200px]">
-                  <div class="flex items-center justify-center   border  rounded-t-lg">
+            <div class="flex gap-10 justify-center items-center flex-col lg:flex-row w-full">
+              <div class="flex-1 flex items-center justify-around ">
+                <div class="border rounded-lg w-[200px] bg-white shadow-lg ">
+                  <div class="flex items-center justify-center border-b">
                     <h1 class="font-extrabold text-9xl p-10 text-green-200">12</h1>
                   </div>
                   <h1 class="flex justify-center p-2">Verified</h1>
                 </div>
               </div>
-              <div class="flex-1 flex items-center justify-around p-10">
-                <div class="border rounded-lg w-[200px]">
-                  <div class="flex items-center justify-center   border  rounded-t-lg">
+              <div class="flex-1 flex items-center justify-around">
+                <div class="border rounded-lg w-[200px] bg-white shadow-lg">
+                  <div class="flex items-center justify-center border-b">
                     <h1 class="font-extrabold text-9xl p-10 text-orange-200">32</h1>
                   </div>
                   <h1 class="flex justify-center p-2">Pending</h1>
                 </div>
               </div>
-              <div class="flex-1 flex items-center justify-around p-10">
-                <div class="border rounded-lg w-[200px]">
-                  <div class="flex items-center justify-center   border  rounded-t-lg">
+              <div class="flex-1 flex items-center justify-around">
+                <div class="border rounded-lg w-[200px] bg-white shadow-lg">
+                  <div class="flex items-center justify-center border-b">
                     <h1 class="font-extrabold text-9xl p-10 text-red-200">-</h1>
                   </div>
                   <h1 class="flex justify-center p-2">Declined</h1>
                 </div>
               </div>
             </div>
-            <hr class="w-full" />
-            <div class="w-full py-5">
+            <hr class="w-full m-10" />
+            <div class="w-full">
               <h1 class="font-extrabold py-2">Pending Verification requests</h1>
               <p>
                 List of pending verification requests with basic transaction
@@ -152,7 +153,7 @@
                     <h3 class="font-bold">Transaction 1</h3>
                     <p>Amount $100</p>
                   </div>
-                  <div class="flex flex-col items-center justify-center pr-20">
+                  <div class="flex flex-col items-center justify-center pr-5">
                     <h3 class="font-bold">Status</h3>
                     <div class=" p-2">
                       <i class="fa-solid fa-circle-minus fa-2xl" style="color: #f1c232;"></i>
@@ -165,7 +166,7 @@
                     <h3 class="font-bold">Transaction 2</h3>
                     <p>Amount $100</p>
                   </div>
-                  <div class="flex flex-col items-center justify-center pr-20">
+                  <div class="flex flex-col items-center justify-center pr-5">
                     <h3 class="font-bold">Status</h3>
                     <div class=" p-2">
                       <i class="fa-solid fa-circle-minus fa-2xl" style="color: #f1c232;"></i>
@@ -178,7 +179,7 @@
                     <h3 class="font-bold">Transaction 3</h3>
                     <p>Amount $100</p>
                   </div>
-                  <div class="flex flex-col items-center justify-center pr-20">
+                  <div class="flex flex-col items-center justify-center pr-5">
                     <h3 class="font-bold">Status</h3>
                     <div class=" p-2">
                       <i class="fa-solid fa-circle-minus fa-2xl" style="color: #f1c232;"></i>
@@ -192,7 +193,7 @@
         </div>
 
         <!-- Upload -->
-        <div id="upload" class="hidden px-10 py-2">
+        <div id="upload" class="hidden px-10 py-12 md:py-2 w-full">
           <h1 class="font-bold text-2xl">Upload Form</h1>
           <div class="py-10">
             <form action="" class="flex flex-col">
@@ -226,14 +227,14 @@
               </div>
             </form>
 
-            <div class="flex items-center justify-center p-5">
-              <div class="p-2">
-                <button class="border rounded-lg p-2 px-20" type="button">
+            <div class="flex items-center justify-center gap-5 pt-5">
+              <div class="w-full">
+                <button class="border rounded-lg p-2 md:px-20 w-full bg-white" type="button">
                   Cancel
                 </button>
               </div>
-              <div class="p-2">
-                <button class="border rounded-lg p-2 px-20 bg-[#02B056]" type="button">
+              <div class="w-full">
+                <button class="border rounded-lg p-2 md:px-20 bg-[#02B056] w-full" type="button">
                   Upload
                 </button>
               </div>
@@ -242,17 +243,17 @@
         </div>
 
         <!-- History -->
-        <div id="transactions" class="hidden px-10 py-2">
+        <div id="transactions" class="hidden px-10 py-12 md:py-2 w-full">
           <div class="">
             <h2 class="font-bold text-2xl">History</h2>
           </div>
-          <div class="py-5">
+          <div class="py-5 w-full">
             <div class="flex justify-between py-5">
               <div>
                 <h3 class="font-bold">Transaction 1</h3>
                 <p>Amount $100</p>
               </div>
-              <div class="flex flex-col items-center justify-center pr-20">
+              <div class="flex flex-col items-center justify-center pr-5">
                 <h3 class="font-bold">Status</h3>
                 <div class=" p-2">
                   <i class="fa-solid fa-circle-check fa-2xl" style="color: #028056;"></i>
@@ -265,7 +266,7 @@
                 <h3 class="font-bold">Transaction 2</h3>
                 <p>Amount $100</p>
               </div>
-              <div class="flex flex-col items-center justify-center pr-20">
+              <div class="flex flex-col items-center justify-center pr-5">
                 <h3 class="font-bold">Status</h3>
                 <div class=" p-2">
                   <i class="fa-solid fa-circle-check fa-2xl" style="color: #028056;"></i>
@@ -278,7 +279,7 @@
                 <h3 class="font-bold">Transaction 3</h3>
                 <p>Amount $100</p>
               </div>
-              <div class="flex flex-col items-center justify-center pr-20">
+              <div class="flex flex-col items-center justify-center pr-5">
                 <h3 class="font-bold">Status</h3>
                 <div class=" p-2">
                   <i class="fa-solid fa-circle-minus fa-2xl" style="color: #f1c232;"></i>
@@ -291,7 +292,7 @@
                 <h3 class="font-bold">Transaction 3</h3>
                 <p>Amount $100</p>
               </div>
-              <div class="flex flex-col items-center justify-center pr-20">
+              <div class="flex flex-col items-center justify-center pr-5">
                 <h3 class="font-bold">Status</h3>
                 <div class=" p-2">
                   <i class="fa-solid fa-circle-xmark fa-2xl" style="color: #cc0000;"></i>
