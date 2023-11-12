@@ -41,7 +41,11 @@
 
       <form class="flex flex-col w-full " action="">
         <label class="pb-2" for="email">Email</label>
-        <input class="border rounded-lg p-2 mb-5" id="email" type="email" />
+        <input class="border rounded-lg p-2 mb-5" id="email" name="email" type="email" placeholder="Enter your school email address" required />
+
+        <!-- Email input error message -->
+        <div id="emailError" class="error-message"></div>
+
         <label class="pb-2" for="password">Password</label>
         <input class="border rounded-lg p-2 mb-5" id="password" type="password" />
       </form>
@@ -58,11 +62,33 @@
 
       <!-- Login button with custom background color -->
 
-      <button class="w-full rounded-lg py-2 bg-[#02B056]" type="button">
+      <button class="w-full rounded-lg py-2 bg-[#02B056]" type="button" id="loginButton">
         Login
       </button>
     </div>
   </div>
+
+
+  <script>
+    document.getElementById('loginButton').addEventListener('click', validateLogin);
+    
+    function validateLogin() {
+        var emailInput = document.getElementById('email');
+        var emailError = document.getElementById('emailError');
+        
+        // Regular expression for a valid email address
+        var emailRegex = /^[a-zA-Z0-9._-]+@studmc\.kiu\.ac\.ug$/;
+    
+        if (!emailRegex.test(emailInput.value)) {
+            emailError.textContent = 'Please enter a valid school email address.';
+            document.getElementById("emailError").style.color = "red";
+            return false;
+        } else {
+            emailError.textContent = '';
+        }
+    }
+    </script>
+    
 </body>
 
 </html>
