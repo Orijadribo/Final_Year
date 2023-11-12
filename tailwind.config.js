@@ -6,7 +6,11 @@ module.exports = {
     "./pages/student/*.{html,js}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        body: ["Nunito Sans", "Open Sans", "Poppins"],
+      },
+    },
   },
   plugins: [],
 };
