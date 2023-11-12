@@ -621,7 +621,7 @@ video {
 }
 
 .ml-\[\] {
-  margin-left: ;
+  /* margin-left: ; */
 }
 
 .ml-\[25\] {
@@ -835,7 +835,7 @@ video {
 }
 
 .bg-\[\#FFFFF\] {
-  background-color: #FFFFF;
+  background-color: #FFFFFF;
 }
 
 .bg-slate-100 {

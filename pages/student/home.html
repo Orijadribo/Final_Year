@@ -8,6 +8,7 @@
   <!-- Link to external CSS file -->
 
   <link href="/dist/output.css" rel="stylesheet" />
+  <link rel="stylesheet" href="home.css">
 
   <!-- link for icons -->
   <script src="https://kit.fontawesome.com/ee9e6d4983.js" crossorigin="anonymous"></script>
@@ -191,56 +192,69 @@
             </div>
           </div>
         </div>
-
+        
         <!-- Upload -->
         <div id="upload" class="hidden px-10 py-12 md:py-2 w-full">
           <h1 class="font-bold text-2xl">Upload Form</h1>
           <div class="py-10">
-            <form action="" class="flex flex-col">
-              <label for="amount" class="pb-2">Amount</label>
-              <input type="number" name="amount" id="amount" class="border p-2 px-2 mb-5 rounded-md" />
-              <label for="date" class="pb-2">Date</label>
-              <input type="date" name="date" id="date" class="border p-2 px-2 mb-5 rounded-md" />
-              <label for="regNo" class="pb-2">Registration Number</label>
-              <input type="text" name="payer" id="regNo" class="border p-2 px-2 mb-5 rounded-md" />
-              <label for="payer" class="pb-2">Payer/Payee Information</label>
-              <input type="text" name="payer" id="payer" class="border p-2 px-2 mb-5 rounded-md" />
+              <!-- Update the form with action and submit button -->
+              <form action="" class="flex flex-col" id="uploadForm">
+                  <div class="alert">Your form has been sent successfully</div>
 
+                  <!-- Amount -->
+                  <label for="amount" class="pb-2">Amount</label>
+                  <input type="number" name="amount" id="amount" class="border p-2 px-2 mb-5 rounded-md" />
 
-              <!-- File Input -->
-              <div class="flex items-center justify-center ">
-                <label for="dropzone-file"
-                  class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-[#02B056]/[0.1] hover:bg-[#02B056]/[0.3] ">
-                  <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                    <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                    </svg>
-                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
-                        upload</span> or
-                      drag and drop</p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Image or PDF</p>
+                  <!-- Date -->
+                  <label for="date" class="pb-2">Date</label>
+                  <input type="date" name="date" id="date" class="border p-2 px-2 mb-5 rounded-md" />
+
+                  <!-- Registration Number -->
+                  <label for="regNo" class="pb-2">Registration Number</label>
+                  <input type="text" name="regNo" id="regNo" class="border p-2 px-2 mb-5 rounded-md" />
+
+                  <!-- Payer/Payee Information -->
+                  <label for="payer" class="pb-2">Payer/Payee Information</label>
+                  <input type="text" name="payer" id="payer" class="border p-2 px-2 mb-5 rounded-md" />
+
+                  <!-- File Input -->
+                  <div class="flex items-center justify-center ">
+                      <label for="dropzone-file"
+                          class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-[#02B056]/[0.1] hover:bg-[#02B056]/[0.3] ">
+                          <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                              <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                              </svg>
+                              <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
+                                      class="font-semibold">Click to upload</span> or drag and drop</p>
+                              <p class="text-xs text-gray-500 dark:text-gray-400">Image or PDF</p>
+                          </div>
+                          <input id="dropzone-file" type="file" class="hidden" />
+                      </label>
                   </div>
-                  <input id="dropzone-file" type="file" class="hidden" />
-                </label>
-              </div>
-            </form>
 
-            <div class="flex items-center justify-center gap-5 pt-5">
-              <div class="w-full">
-                <button class="border rounded-lg p-2 md:px-20 w-full bg-white" type="button">
-                  Cancel
-                </button>
-              </div>
-              <div class="w-full">
-                <button class="border rounded-lg p-2 md:px-20 bg-[#02B056] w-full" type="button">
-                  Upload
-                </button>
-              </div>
-            </div>
+                  <!-- Cancel Button -->
+                  <div class="flex items-center justify-center gap-5 pt-5">
+                    <div class="w-full">
+                        <button class="border rounded-lg p-2 md:px-20 w-full                  bg-white" type="button" onclick="cancelUpload()">
+                            Cancel
+                        </button>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="w-full">
+                        <button class="border rounded-lg p-2 md:px-20 bg-[#02B056]                  w-full" type="submit">
+                            Upload
+                        </button>
+                    </div>
+                  </div>
+                          
+              </form>
           </div>
-        </div>
+      </div>
+
 
         <!-- History -->
         <div id="transactions" class="hidden px-10 py-12 md:py-2 w-full">
@@ -417,6 +431,11 @@
       elementClose.classList.add("hidden");
     }
   </script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <script src="home.js"></script>
 </body>
 
 </html>

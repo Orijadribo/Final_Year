@@ -1,0 +1,9 @@
+.alert{
+    font-weight: bold;
+    background-color: rgb(123, 245, 123);
+    width: 100%;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: none;
+}
