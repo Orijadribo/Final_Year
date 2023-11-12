@@ -2,93 +2,66 @@
 <html lang="en">
 
 <head>
-  <!-- google fonts -->
-  
   <!-- Meta tags for character set and viewport -->
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Link to external CSS file -->
-
   <link href="/dist/output.css" rel="stylesheet" />
 
-  <!-- Page title -->
+  <!-- Firebase scripts -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
 
+<!-- Your other scripts -->
+<script type="module" src="login.js"></script>
+
+
+  <!-- Page title -->
   <title>Bank Slip Verification</title>
 </head>
 
 <body>
-
   <!-- Main container with background image -->
-
   <div class="flex items-center justify-center w-screen bg-[#F4F6F9]">
 
     <!-- Login form container -->
-
     <div class="flex flex-col items-center justify-center rounded-lg w-[600px] bg-[#FFFFFF] p-24 shadow-xl">
-
+      
       <!-- Logo and title section -->
-
       <div class="flex flex-col items-center justify-center">
-        <img
-          src="/assets/kiu-logo-2.png"
-          alt="KIU Logo" />
-        <h1 class="py-5 font-medium text-xl font-body">Bank Slip Verification Login</h1>
+        <img src="/assets/kiu-logo-2.png" alt="KIU Logo" />
+        <h1 class="py-5 font-medium text-xl">Bank Slip Verification Login</h1>
       </div>
 
       <!-- Login form -->
-
-      <form class="flex flex-col w-full " action="">
-        <label class="pb-2 font-body" for="email">Email</label>
+      <form class="flex flex-col w-full" action="">
+        <label class="pb-2" for="email">Email</label>
         <input class="border rounded-lg p-2 mb-5" id="email" name="email" type="email" placeholder="Enter your school email address" required />
 
         <!-- Email input error message -->
         <div id="emailError" class="error-message"></div>
 
-        <label class="pb-2 font-body" for="password">Password</label>
+        <label class="pb-2" for="password">Password</label>
         <input class="border rounded-lg p-2 mb-5" id="password" type="password" />
       </form>
 
       <!-- Remember me checkbox and forgot password link -->
-
       <div class="flex items-center justify-between w-full pb-5">
-        <a class="text-sm  font-body" href="">Forgot your password?</a>
+        <a class="text-sm" href="">Forgot your password?</a>
         <div class="flex items-center justify-center">
           <input type="checkbox" id="remember" name="remember" value="Remember me" />
-          <label class="pl-2 text-sm font-body" for="remember">Remember me?</label>
+          <label class="pl-2 text-sm" for="remember">Remember me?</label>
         </div>
       </div>
 
       <!-- Login button with custom background color -->
-
-      <button class="w-full rounded-lg py-2 bg-[#02B056] font-body" type="button" id="loginButton">
+      <button class="w-full rounded-lg py-2 bg-[#02B056]" type="button" id="loginButton">
         Login
       </button>
     </div>
   </div>
-
-
-  <script>
-    document.getElementById('loginButton').addEventListener('click', validateLogin);
-    
-    function validateLogin() {
-        var emailInput = document.getElementById('email');
-        var emailError = document.getElementById('emailError');
-        
-        // Regular expression for a valid email address
-        var emailRegex = /^[a-zA-Z0-9._-]+@studmc\.kiu\.ac\.ug$/;
-    
-        if (!emailRegex.test(emailInput.value)) {
-            emailError.textContent = 'Please enter a valid school email address.';
-            document.getElementById("emailError").style.color = "red";
-            return false;
-        } else {
-            emailError.textContent = '';
-        }
-    }
-    </script>
-    
 </body>
 
 </html>
