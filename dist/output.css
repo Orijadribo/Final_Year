@@ -674,6 +674,14 @@ video {
   width: 100vw;
 }
 
+.w-1\/2{
+  width: 50%;
+}
+
+.w-2\/3{
+  width: 66.666667%;
+}
+
 .flex-1{
   flex: 1 1 0%;
 }
@@ -1050,6 +1058,14 @@ video {
 
   .md\:w-\[25\%\]{
     width: 25%;
+  }
+
+  .md\:w-\[600px\]{
+    width: 600px;
+  }
+
+  .md\:p-20{
+    padding: 5rem;
   }
 
   .md\:px-20{

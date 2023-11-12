@@ -56,12 +56,14 @@ function cancelUpload() {
     var elementNotifications = document.getElementById("notifications");
     var elementSettings = document.getElementById("settings");
 
-    elementHome.classList.remove("hidden");
-    elementTransactions.classList.add("hidden");
-    elementUpload.classList.add("hidden");
-    elementNotifications.classList.add("hidden");
-    elementSettings.classList.add("hidden");
+    // To be deleted (Commented out code below!)
+                        // elementHome.classList.remove("hidden");
+                        // elementTransactions.classList.add("hidden");
+                        // elementUpload.classList.add("hidden");
+                        // elementNotifications.classList.add("hidden");
+                        // elementSettings.classList.add("hidden");
 
+    // To clear all the fields of the uplaod form 
     document.getElementById("uploadForm").reset();
 }
 
