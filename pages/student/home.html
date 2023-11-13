@@ -215,23 +215,23 @@
           <div class="py-10">
             <!-- Update the form with action and submit button -->
             <form action="" class="flex flex-col" id="uploadForm">
-              <div class="alert">Your form has been sent successfully</div>
+              <div class="alert" style="text-align: center;">Submitted successfully</div>
 
               <!-- Amount -->
               <label for="amount" class="pb-2">Amount</label>
-              <input type="number" name="amount" id="amount" class="border p-2 px-2 mb-5 rounded-md" />
+              <input type="number" name="amount" id="amount" class="border p-2 px-2 mb-5 rounded-md" required/>
 
               <!-- Date -->
               <label for="date" class="pb-2">Date</label>
-              <input type="date" name="date" id="date" class="border p-2 px-2 mb-5 rounded-md" />
+              <input type="date" name="date" id="date" class="border p-2 px-2 mb-5 rounded-md" required/>
 
               <!-- Registration Number -->
               <label for="regNo" class="pb-2">Registration Number</label>
-              <input type="text" name="regNo" id="regNo" class="border p-2 px-2 mb-5 rounded-md" />
+              <input type="text" name="regNo" id="regNo" class="border p-2 px-2 mb-5 rounded-md" required/>
 
               <!-- Payer/Payee Information -->
               <label for="payer" class="pb-2">Payer/Payee Information</label>
-              <input type="text" name="payer" id="payer" class="border p-2 px-2 mb-5 rounded-md" />
+              <input type="text" name="payer" id="payer" class="border p-2 px-2 mb-5 rounded-md" required/>
 
               <!-- File Input -->
               <div class="flex items-center justify-center ">
@@ -247,7 +247,7 @@
                         upload</span> or drag and drop</p>
                     <p class="text-xs text-gray-500 dark:text-gray-400">Image or PDF</p>
                   </div>
-                  <input id="dropzone-file" type="file" class="hidden" />
+                  <input id="dropzone-file" type="file" class="hidden" required/>
                 </label>
               </div>
 
