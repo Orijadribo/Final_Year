@@ -25,19 +25,26 @@ function login() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 
-  // Use the hardcoded credentials for testing
-  const hardcodedEmail = "david.ocan@studmc.kiu.ac.ug";
-  const hardcodedPassword = "12345678";
 
-  // Check if the entered credentials match the hardcoded ones
-  if (email === hardcodedEmail && password === hardcodedPassword) {
+  // Use the hardcoded credentials for testing
+
+  const users = [
+    { email: "david.ocan@studmc.kiu.ac.ug", password: "12345678", redirect: "/pages/student/home.html" },
+    { email: "kingkarberg@studmc.kiu.ac.ug", password: "erik&dan", redirect: "/pages/student/home.html" },
+    { email: "daniel@studmc.kiu.ac.ug", password: "123456", redirect: "/pages/student/home.html" }
+  ];
+  
+  // Check if the entered credentials match any user
+  const matchedUser = users.find(user => user.email === email && user.password === password);
+  
+  if (matchedUser) {
     // Manually sign in the user using Firebase Authentication
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log('Logged in:', user);
-        // Redirect to home.html
-        window.location.href = "/pages/student/home.html";
+        // Redirect to the specified page
+        window.location.href = matchedUser.redirect;
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -48,7 +55,7 @@ function login() {
   } else {
     alert("Invalid credentials");
   }
-}
+} 
 
 // Event listener for login button click
 document.getElementById('loginButton').addEventListener('click', login);
