@@ -35,11 +35,13 @@
     }
 
     .transactionDetails table {
-      width: 50%; /* Set the width to your preference */
+      width: 50%;
+      /* Set the width to your preference */
       border-collapse: collapse;
     }
 
-    .transactionDetails th, .transactionDetails td {
+    .transactionDetails th,
+    .transactionDetails td {
       border: 1px solid #ddd;
       padding: 8px;
       text-align: left;
@@ -127,8 +129,6 @@
         </ul>
       </div>
 
-      <!-- Main content area -->
-
       <!-- Options bar -->
       <div class="flex items-center justify-between bg-white w-full p-2 md:hidden fixed top-0 left-0">
         <div id="open" class="" onclick="sideBarOpen()">
@@ -142,12 +142,13 @@
         </div>
       </div>
 
+      <!-- Main content area -->
+
       <div class="flex flex-col items-center justify-center w-screen pt-5 bg-[#F4F6F9] md:ml-[25%]">
 
         <!-- User Information and shortcuts bar -->
         <div class="hidden md:block w-[95%] sticky top-0 right-0">
-          <div
-            class="  flex flex-row items-center justify-end gap-4 bg-white px-5 py-2 rounded-xl shadow-sm ">
+          <div class="  flex flex-row items-center justify-end gap-4 bg-white px-5 py-2 rounded-xl shadow-sm ">
             <div class="mx-10"><i class="fa-solid fa-bell"></i></div>
             <h1>Daniel</h1>
             <div class="rounded-full bg-slate-500 h-10 w-10"></div>
@@ -239,20 +240,20 @@
                   </div>
                 </div>
 
-                
+
                 <h1>Transaction List</h1>
                 <ul id="transactionsList"></ul>
-              
+
                 <script>
                   // Your JavaScript code goes here
                 </script>
-              
+
                 <div class="transactionDetails">
                   <table id="detailsTable"></table>
                 </div>
-                
-                
-                
+
+
+
                 <hr />
               </div>
             </div>
@@ -269,19 +270,19 @@
 
               <!-- Amount -->
               <label for="amount" class="pb-2">Amount</label>
-              <input type="number" name="amount" id="amount" class="border p-2 px-2 mb-5 rounded-md" required/>
+              <input type="number" name="amount" id="amount" class="border p-2 px-2 mb-5 rounded-md" required />
 
               <!-- Date -->
               <label for="date" class="pb-2">Date</label>
-              <input type="date" name="date" id="date" class="border p-2 px-2 mb-5 rounded-md" required/>
+              <input type="date" name="date" id="date" class="border p-2 px-2 mb-5 rounded-md" required />
 
               <!-- Registration Number -->
               <label for="regNo" class="pb-2">Registration Number</label>
-              <input type="text" name="regNo" id="regNo" class="border p-2 px-2 mb-5 rounded-md" required/>
+              <input type="text" name="regNo" id="regNo" class="border p-2 px-2 mb-5 rounded-md" required />
 
               <!-- Payer/Payee Information -->
               <label for="payer" class="pb-2">Payer/Payee Information</label>
-              <input type="text" name="payer" id="payer" class="border p-2 px-2 mb-5 rounded-md" required/>
+              <input type="text" name="payer" id="payer" class="border p-2 px-2 mb-5 rounded-md" required />
 
               <!-- File Input -->
               <div class="flex items-center justify-center ">
@@ -297,7 +298,7 @@
                         upload</span> or drag and drop</p>
                     <p class="text-xs text-gray-500 dark:text-gray-400">Image or PDF</p>
                   </div>
-                  <input id="dropzone-file" type="file" class="hidden" required/>
+                  <input id="dropzone-file" type="file" class="hidden" required />
                 </label>
               </div>
 
