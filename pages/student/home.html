@@ -15,6 +15,41 @@
 
 
   <title>Student Dashboard</title>
+
+  <style>
+    /* Add your styles here */
+    #transactionsList {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #transactionsList li {
+      margin-bottom: 10px;
+      cursor: pointer;
+      color: blue;
+    }
+
+    .transactionDropdown {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .transactionDetails table {
+      width: 50%; /* Set the width to your preference */
+      border-collapse: collapse;
+    }
+
+    .transactionDetails th, .transactionDetails td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .transactionDetails th {
+      background-color: #f2f2f2;
+    }
+  </style>
+
 </head>
 
 <body class=" font-body">
@@ -203,6 +238,21 @@
                     </div>
                   </div>
                 </div>
+
+                
+                <h1>Transaction List</h1>
+                <ul id="transactionsList"></ul>
+              
+                <script>
+                  // Your JavaScript code goes here
+                </script>
+              
+                <div class="transactionDetails">
+                  <table id="detailsTable"></table>
+                </div>
+                
+                
+                
                 <hr />
               </div>
             </div>
