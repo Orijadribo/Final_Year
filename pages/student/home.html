@@ -148,12 +148,20 @@
 
         <!-- User Information and shortcuts bar -->
         <div class="hidden md:block w-[95%] sticky top-0 right-0">
-          <div class="  flex flex-row items-center justify-end gap-4 bg-white px-5 py-2 rounded-xl shadow-sm ">
-            <div class="mx-10"><i class="fa-solid fa-bell"></i></div>
-            <h1>Daniel</h1>
-            <div class="rounded-full bg-slate-500 h-10 w-10"></div>
-            <div onclick="openOptions()" id="openOptions" class=""><i class="fa-solid fa-angle-down"></i></div>
-            <div onclick="closeOptions()" id="closeOptions" class="hidden"><i class="fa-solid fa-angle-up"></i></div>
+        
+          <div class="  flex flex-row items-center justify-between gap-4 bg-white px-4 py-2 rounded-xl shadow-sm ">
+            <!-- Search -->
+            <div class="flex items-center justify-center py-1 px-2  rounded-md">
+              <div class="pl-2"><i class="fa-solid fa-magnifying-glass fa-sm"></i></div>
+              <input class="border-none focus:outline-none px-2 lg:w-[500px]" type="text" placeholder="Search..." />
+            </div>
+            <div class="flex flex-row items-center justify-center gap-4">
+              <div class="mx-10"><i class="fa-solid fa-bell"></i></div>
+              <h1>Daniel</h1>
+              <div class="rounded-full bg-slate-500 h-10 w-10"></div>
+              <div onclick="openOptions()" id="openOptions" class=""><i class="fa-solid fa-angle-down"></i></div>
+              <div onclick="closeOptions()" id="closeOptions" class="hidden"><i class="fa-solid fa-angle-up"></i></div>
+            </div>
           </div>
         </div>
 
@@ -281,7 +289,7 @@
               <input type="text" name="regNo" id="regNo" class="border p-2 px-2 mb-5 rounded-md" required />
 
               <!-- Payer/Payee Information -->
-              <label for="payer" class="pb-2">Payer/Payee Information</label>
+              <label for="payer" class="pb-2">Paid In By</label>
               <input type="text" name="payer" id="payer" class="border p-2 px-2 mb-5 rounded-md" required />
 
               <!-- File Input -->
