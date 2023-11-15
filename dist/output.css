@@ -727,6 +727,10 @@ video {
   height: 0.75rem;
 }
 
+.h-5{
+  height: 1.25rem;
+}
+
 .w-10{
   width: 2.5rem;
 }
@@ -789,6 +793,10 @@ video {
 
 .w-\[50\%\]{
   width: 50%;
+}
+
+.w-5{
+  width: 1.25rem;
 }
 
 .flex-1{
