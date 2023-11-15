@@ -206,11 +206,43 @@
                     alt="Default Porfile pic"
                   />
                 </div>
-                <div onclick="openOptions()" id="openOptions" class="">
-                  <i class="fa-solid fa-angle-down"></i>
-                </div>
-                <div onclick="closeOptions()" id="closeOptions" class="hidden">
-                  <i class="fa-solid fa-angle-up"></i>
+                <div class="relative">
+                  <div onclick="openOptions()" id="openOptions" class="">
+                    <i class="fa-solid fa-angle-down"></i>
+                  </div>
+                  <div
+                    onclick="closeOptions()"
+                    id="closeOptions"
+                    class="hidden"
+                  >
+                    <i class="fa-solid fa-angle-up"></i>
+                  </div>
+                  <div
+                    id="signOut"
+                    class="absolute bg-white shadow-sm rounded-md right-0 top-10 hidden"
+                  >
+                    <div
+                      class="flex flex-col items-center justify-center py-2 px-10"
+                    >
+                      <div class="flex flex-col items-center justify-center gap-5 py-2">
+                        <div
+                          class="flex items-center justify-center rounded-full border h-16 w-16"
+                        >
+                          <img
+                            src="/assets/profile_pic.png"
+                            alt="Default Porfile pic"
+                          />
+                        </div>
+                        <div>
+                          <p>danielorija@studmc.kiu.ac.ug</p>
+                        </div>
+                        <hr class="w-full">
+                        <div class="flex flex-col items-center justify-center hover:rounded-xl hover:bg-[#F4F6F9] py-1 w-full cursor-pointer">
+                          <p>Sign Out</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -648,11 +680,13 @@
       function openOptions() {
         document.getElementById("openOptions").style.display = "none";
         document.getElementById("closeOptions").style.display = "block";
+        document.getElementById("signOut").style.display = "block";
       }
 
       //Function to close signout option
       function closeOptions() {
         document.getElementById("closeOptions").style.display = "none";
+        document.getElementById("signOut").style.display = "none";
         document.getElementById("openOptions").style.display = "block";
       }
     </script>
