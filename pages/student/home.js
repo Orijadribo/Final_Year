@@ -13,6 +13,7 @@ firebase.initializeApp(firebaseConfig);
 
 // Reference your database
 var bankslipDb = firebase.database().ref("uploadForm");
+var bankDetailsRef = firebase.database().ref("bankDetails");
 
 // Form details submission
 document.getElementById("uploadForm").addEventListener("submit", submitform);
@@ -26,37 +27,94 @@ function submitform(e) {
   var payer = getElementval('payer');
   var bankslipImage = getElementval('dropzone-file');
 
-  saveMessages(amount, date, regNo, payer, bankslipImage);
+  // Check for verification
+  checkVerification(amount, date, regNo, payer);
+
+  document.getElementById("uploadForm").reset();
+}
+
+// Reference to the verified list in the database
+var verifiedListRef = firebase.database().ref("verifiedList");
+
+// Reference to the denied list in the database
+var deniedListRef = firebase.database().ref("deniedList");
+
+// Function to check verification
+function checkVerification(amount, date, regNo, payer) {
+  bankDetailsRef.once("value", function(snapshot) {
+    var bankDetails = snapshot.val();
+
+    for (var key in bankDetails) {
+      if (bankDetails.hasOwnProperty(key)) {
+        var bankDetail = bankDetails[key];
+
+        // Compare uploaded details with bank details
+        if (compareDetails(amount, date, regNo, payer, bankDetail)) {
+          // If details match, add to verified list and display a verified message
+          addToVerifiedList(amount, date, regNo, payer);
+          displayNotification("Verified");
+          return;
+        }
+      }
+    }
+
+    // If no match is found, add to denied list and display a denied message
+    addToDeniedList(amount, date, regNo, payer);
+    displayNotification("Denied");
+  });
+}
+
+// Function to add details to the verified list
+function addToVerifiedList(amount, date, regNo, payer) {
+  var newVerifiedItem = verifiedListRef.push();
+
+  newVerifiedItem.set({
+    amount: amount,
+    date: date,
+    regNo: regNo,
+    payer: payer
+  });
+}
+
+// Function to add details to the denied list
+function addToDeniedList(amount, date, regNo, payer) {
+  var newDeniedItem = deniedListRef.push();
+
+  newDeniedItem.set({
+    amount: amount,
+    date: date,
+    regNo: regNo,
+    payer: payer
+  });
+}
+
+// Function to compare details
+function compareDetails(amount1, date1, regNo1, payer1, details2) {
+  return (
+    Number(amount1) === details2.amount &&
+    date1 === details2.date &&
+    regNo1 === details2.regNo &&
+    payer1 === details2.payer
+  );
+}
+
+
+// Function to display notification
+function displayNotification(message) {
+  // Replace this with your actual notification mechanism (e.g., alert, toast, etc.)
+  alert("Verification Result: " + message);
+  document.querySelector(".alert").innerHTML = ("Verification Result: " + message);
   document.querySelector(".alert").style.display = "block";
 
   setTimeout(() => {
     document.querySelector(".alert").style.display = "none";
   }, 3000);
-
-  document.getElementById("uploadForm").reset();
-}
-
-const saveMessages = (amount, date, regNo, payer, bankslipImage) => {
-  var newUploadform = bankslipDb.push();
-
-  newUploadform.set({
-    amount: amount,
-    date: date,
-    regNo: regNo,
-    payer: payer,
-    bankslipImage: bankslipImage
-  });
+  document.getElementById("myform").reset();
 }
 
 // Function to handle cancel button
 function cancelUpload() {
-  var elementHome = document.getElementById("home");
-  var elementTransactions = document.getElementById("transactions");
-  var elementUpload = document.getElementById("upload");
-  var elementNotifications = document.getElementById("notifications");
-  var elementSettings = document.getElementById("settings");
-
-  // To clear all the fields of the upload form 
+  // Clear all the fields of the upload form 
   document.getElementById("uploadForm").reset();
 }
 
