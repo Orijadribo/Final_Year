@@ -19,23 +19,22 @@
 
     <style>
       table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 20px;
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
       }
 
-      th, td {
-          border: 1px solid #ddd;
-          padding: 8px;
-          text-align: left;
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
       }
 
       th {
-          background-color: #f2f2f2;
+        background-color: #f2f2f2;
       }
-
-  </style>
-    
+    </style>
   </head>
 
   <body class="font-body">
@@ -57,9 +56,9 @@
 
         <div
           id="sideBar"
-          class="md:w-[25%] h-full bg-white hidden md:block shadow-2xl top-0 left-0 fixed"
+          class="md:w-[30%] lg:w-[25%] h-full bg-white hidden md:block shadow-2xl top-0 left-0 fixed"
         >
-          <div class="flex gap-2 p-8 item-center justify-center">
+          <div class="flex gap-2 p-8 pt-20 md:p-8 item-center justify-center">
             <div class="p-1 flex items-center">
               <i
                 class="fa-solid fa-graduation-cap fa-xl"
@@ -69,86 +68,98 @@
             <h1 class="font-bold text-[24px] font-body">Student Dashboard</h1>
           </div>
 
-          <!-- User profile info -->
-          <!-- 
-        <div class="flex flex-col items-start justify-center p-5">
-          <div class="rounded-full bg-slate-500 h-20 w-20 m-2"></div>
-          <h1 class="font-extrabold text-4xl">Daniel Orija</h1>
-          <p class="font-bold">2020-08-01895</p>
-        </div> -->
-
           <!-- Sidebar navigation menu -->
 
-          <ul class="pt-5 pl-10">
-            <li
-              onclick="showElementHome()"
-              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
-            >
-              <div class="flex gap-5">
-                <div class=""><i class="fa-solid fa-house"></i></div>
-                Home
-              </div>
-            </li>
-            <li
-              onclick="showElementUpload()"
-              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
-            >
-              <div class="flex gap-5">
-                <div class=""><i class="fa-solid fa-upload"></i></div>
-                Upload
-              </div>
-            </li>
-            <li
-              onclick="showElementTransactions()"
-              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
-            >
-              <div class="flex gap-5">
-                <div class="">
-                  <i class="fa-solid fa-clock-rotate-left"></i>
+          <div class="flex flex-col items-center">
+            <ul class="pt-5 lg:pl-10 w-full">
+              <li
+                onclick="showElementHome()"
+                class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+              >
+                <div class="flex gap-5">
+                  <div class=""><i class="fa-solid fa-house"></i></div>
+                  Home
                 </div>
-                History
-              </div>
-            </li>
-            <li
-              onclick="showElementNotifications()"
-              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
-            >
-              <div class="flex gap-5">
-                <div class=""><i class="fa-solid fa-bell"></i></div>
-                Notifications
-              </div>
-            </li>
-            <li
-              onclick="showElementSettings()"
-              class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
-            >
-              <div class="flex gap-5">
-                <div class=""><i class="fa-solid fa-gear"></i></div>
-                Settings
-              </div>
-            </li>
-          </ul>
+              </li>
+              <li
+                onclick="showElementUpload()"
+                class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+              >
+                <div class="flex gap-5">
+                  <div class=""><i class="fa-solid fa-upload"></i></div>
+                  Upload
+                </div>
+              </li>
+              <li
+                onclick="showElementTransactions()"
+                class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+              >
+                <div class="flex gap-5">
+                  <div class="">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                  </div>
+                  History
+                </div>
+              </li>
+              <li
+                onclick="showElementNotifications()"
+                class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+              >
+                <div class="flex gap-5">
+                  <div class=""><i class="fa-solid fa-bell"></i></div>
+                  Notifications
+                </div>
+              </li>
+              <li
+                onclick="showElementSettings()"
+                class="py-2 px-5 cursor-pointer hover:bg-slate-200 rounded-l-xl"
+              >
+                <div class="flex gap-5">
+                  <div class=""><i class="fa-solid fa-gear"></i></div>
+                  Settings
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <!-- Options bar -->
         <div
-          class="flex items-center justify-between bg-white w-full p-2 md:hidden fixed top-0 left-0"
+          class="flex items-center justify-around bg-white w-full p-2 md:hidden fixed top-0 left-0 rounded-2xl m-2"
         >
+          <!-- Side bar icon  -->
+
           <div id="open" class="" onclick="sideBarOpen()">
             <i class="fa-solid fa-bars fa-xl p-2"></i>
           </div>
           <div id="close" class="hidden" onclick="sideBarClose()">
             <i class="fa-solid fa-xmark fa-xl p-2"></i>
           </div>
+
+          <!-- Search -->
+          <input
+            class="border-none focus:outline-none px-2 lg:w-[500px]"
+            type="search"
+            name="search"
+            id="searchSmallScreen"
+            placeholder="Search..."
+          />
+
+          <!-- Profile Picture  -->
+
           <div class="flex flex-col items-start justify-center pr-2">
-            <div class="rounded-full bg-slate-500 h-10 w-10 m-2"></div>
+            <div
+              class="flex items-center justify-center rounded-full border h-12 w-12"
+            >
+              <img src="/assets/profile_pic.png" alt="Default Porfile pic" />
+            </div>
           </div>
         </div>
 
         <!-- Main content area -->
 
         <div
-          class="flex flex-col items-center justify-center w-screen pt-5 bg-[#F4F6F9] md:ml-[25%]"
+          class="flex flex-col items-center justify-center w-screen pt-10 md:pt-5 bg-[#F4F6F9] md:ml-[30%] lg:ml-[25%]"
         >
           <!-- User Information and shortcuts bar -->
           <div class="hidden md:block w-[95%] sticky top-0 right-0">
@@ -159,12 +170,14 @@
               <div
                 class="flex items-center justify-center py-1 px-2 rounded-md"
               >
-                <div class="pl-2">
+                <div class="">
                   <i class="fa-solid fa-magnifying-glass fa-sm"></i>
                 </div>
                 <input
                   class="border-none focus:outline-none px-2 lg:w-[500px]"
-                  type="text"
+                  type="search"
+                  name="search"
+                  id="search"
                   placeholder="Search..."
                 />
               </div>
@@ -208,7 +221,9 @@
                     <div
                       class="flex flex-col items-center justify-center py-2 px-10"
                     >
-                      <div class="flex flex-col items-center justify-center gap-5 py-2">
+                      <div
+                        class="flex flex-col items-center justify-center gap-5 py-2"
+                      >
                         <div
                           class="flex items-center justify-center rounded-full border h-16 w-16"
                         >
@@ -220,8 +235,10 @@
                         <div>
                           <p>danielorija@studmc.kiu.ac.ug</p>
                         </div>
-                        <hr class="w-full">
-                        <div class="flex flex-col items-center justify-center hover:rounded-xl hover:bg-[#F4F6F9] py-1 w-full cursor-pointer">
+                        <hr class="w-full" />
+                        <div
+                          class="flex flex-col items-center justify-center hover:rounded-xl hover:bg-[#F4F6F9] py-1 w-full cursor-pointer"
+                        >
                           <p>Sign Out</p>
                         </div>
                       </div>
@@ -547,24 +564,23 @@
               <button id="deniedListBtn">Denied List</button>
               <button id="verifiedListBtn">Verified List</button>
               <div id="deniedList" class="transaction-list hidden">
-                  <h2>Denied List</h2>
-                  <div id="deniedListTableContainer"></div>
+                <h2>Denied List</h2>
+                <div id="deniedListTableContainer"></div>
               </div>
               <div id="verifiedList" class="transaction-list hidden">
-                  <h2>Verified List</h2>
-                  <div id="verifiedListTableContainer"></div>
+                <h2>Verified List</h2>
+                <div id="verifiedListTableContainer"></div>
               </div>
-
             </div>
           </div>
-         
-           <div id="notifications">
-          <!-- Notifications will be dynamically added here using JavaScript -->
+
+          <div id="notifications">
+            <!-- Notifications will be dynamically added here using JavaScript -->
           </div>
-          
+
           <!-- Settings -->
-          <div id="settings" class="hidden">
-            <h1>Settings</h1>
+          <div id="settings" class="px-10 py-12 md:py-5 w-full hidden">
+            <h1 class="font-bold text-2xl font-body">Settings</h1>
           </div>
         </div>
       </div>
