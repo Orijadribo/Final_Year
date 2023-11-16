@@ -18,40 +18,24 @@
     <title>Student Dashboard</title>
 
     <style>
-      /* Add your styles here */
-      #transactionsList {
-        list-style-type: none;
-        padding: 0;
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
       }
 
-      #transactionsList li {
-        margin-bottom: 10px;
-        cursor: pointer;
-        color: blue;
+      th, td {
+          border: 1px solid #ddd;
+          padding: 8px;
+          text-align: left;
       }
 
-      .transactionDropdown {
-        display: none;
-        margin-top: 10px;
+      th {
+          background-color: #f2f2f2;
       }
 
-      .transactionDetails table {
-        width: 50%;
-        /* Set the width to your preference */
-        border-collapse: collapse;
-      }
-
-      .transactionDetails th,
-      .transactionDetails td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-      }
-
-      .transactionDetails th {
-        background-color: #f2f2f2;
-      }
-    </style>
+  </style>
+    
   </head>
 
   <body class="font-body">
@@ -559,14 +543,25 @@
                 </div>
               </div>
               <hr />
+
+              <button id="deniedListBtn">Denied List</button>
+              <button id="verifiedListBtn">Verified List</button>
+              <div id="deniedList" class="transaction-list hidden">
+                  <h2>Denied List</h2>
+                  <div id="deniedListTableContainer"></div>
+              </div>
+              <div id="verifiedList" class="transaction-list hidden">
+                  <h2>Verified List</h2>
+                  <div id="verifiedListTableContainer"></div>
+              </div>
+
             </div>
           </div>
-
-          <!-- Notifications -->
-          <div id="notifications" class="hidden">
-            <h1>Notifications</h1>
+         
+           <div id="notifications">
+          <!-- Notifications will be dynamically added here using JavaScript -->
           </div>
-
+          
           <!-- Settings -->
           <div id="settings" class="hidden">
             <h1>Settings</h1>

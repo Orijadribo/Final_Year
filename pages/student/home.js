@@ -74,6 +74,28 @@ function addToVerifiedList(amount, date, regNo, payer) {
     regNo: regNo,
     payer: payer
   });
+
+  // Reference to the "notifications" node in the Firebase Realtime Database
+const notificationsRef = firebase.database().ref("notifications");
+
+// Function to send a notification
+function sendNotification(message) {
+    // Get the current time
+    const currentTime = new Date().toISOString();
+
+    // Create a new notification object
+    const newNotification = {
+        message: message,
+        time: currentTime
+    };
+
+    // Push the new notification to the "notifications" node in the database
+    notificationsRef.push(newNotification);
+}
+
+// Example: Send a notification when a transaction is verified
+// Replace "Transaction 123 verified!" with your actual notification message
+sendNotification("Transaction details verified. Thank you for your prompt submission.!");
 }
 
 // Function to add details to the denied list
@@ -86,6 +108,27 @@ function addToDeniedList(amount, date, regNo, payer) {
     regNo: regNo,
     payer: payer
   });
+  // Reference to the "notifications" node in the Firebase Realtime Database
+const notificationsRef = firebase.database().ref("notifications");
+
+// Function to send a notification
+function sendNotification(message) {
+    // Get the current time
+    const currentTime = new Date().toISOString();
+
+    // Create a new notification object
+    const newNotification = {
+        message: message,
+        time: currentTime
+    };
+
+    // Push the new notification to the "notifications" node in the database
+    notificationsRef.push(newNotification);
+}
+
+// Example: Send a notification when a transaction is verified
+// Replace "Transaction 123 verified!" with your actual notification message
+sendNotification("Transaction details denied. For inquiries, please contact us.");
 }
 
 // Function to compare details
@@ -97,6 +140,8 @@ function compareDetails(amount1, date1, regNo1, payer1, details2) {
     payer1 === details2.payer
   );
 }
+
+
 
 
 // Function to display notification
@@ -232,3 +277,206 @@ function addRowToTable(table, field, value) {
   cell1.textContent = field;
   cell2.textContent = value;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize Firebase
+  // Make sure to include your Firebase configuration here
+
+  // Reference to the "deniedList" node in the Firebase Realtime Database
+  const deniedListRef = firebase.database().ref("deniedList");
+
+  // Reference to the "verifiedList" node in the Firebase Realtime Database
+  const verifiedListRef = firebase.database().ref("verifiedList");
+
+  // Reference to the "notifications" node in the Firebase Realtime Database
+  const notificationsRef = firebase.database().ref("notifications");
+
+  // Buttons to toggle visibility of tables
+  const deniedListBtn = document.getElementById("deniedListBtn");
+  const verifiedListBtn = document.getElementById("verifiedListBtn");
+
+  // Container for tables
+  const deniedListTableContainer = document.getElementById("deniedListTableContainer");
+  const verifiedListTableContainer = document.getElementById("verifiedListTableContainer");
+
+  // Notification container
+  const notificationsContainer = document.getElementById("notifications");
+
+  // Listen for changes in the deniedList in real-time
+  registerListListeners(deniedListRef, deniedListTableContainer);
+
+  // Listen for changes in the verifiedList in real-time
+  registerListListeners(verifiedListRef, verifiedListTableContainer);
+
+  // Listen for changes in the notifications in real-time
+  registerNotificationsListener(notificationsRef, notificationsContainer);
+
+  // Show the corresponding table when the button is clicked
+  deniedListBtn.addEventListener("click", function () {
+      showTable("deniedList");
+  });
+
+  verifiedListBtn.addEventListener("click", function () {
+      showTable("verifiedList");
+  });
+
+  // Function to toggle visibility of tables
+  function showTable(tableId) {
+      const deniedList = document.getElementById("deniedList");
+      const verifiedList = document.getElementById("verifiedList");
+
+      if (tableId === "deniedList") {
+          deniedList.classList.remove("hidden");
+          verifiedList.classList.add("hidden");
+      } else if (tableId === "verifiedList") {
+          deniedList.classList.add("hidden");
+          verifiedList.classList.remove("hidden");
+      }
+  }
+
+  // Function to register listeners for tables
+  function registerListListeners(listRef, tableContainer) {
+      // Listen for changes in the list in real-time
+      listRef.on("value", function (snapshot) {
+          const data = snapshot.val();
+
+          // Clear existing content in the table container
+          tableContainer.innerHTML = "";
+
+          if (data) {
+              // Create a table element
+              const table = document.createElement("table");
+
+              // Create table header
+              const thead = document.createElement("thead");
+              const headerRow = document.createElement("tr");
+              const headers = ["Transaction Date", "Amount", "Payer", "Registration Number"];
+
+              headers.forEach(headerText => {
+                  const th = document.createElement("th");
+                  th.textContent = headerText;
+                  headerRow.appendChild(th);
+              });
+
+              thead.appendChild(headerRow);
+              table.appendChild(thead);
+
+              // Create table body
+              const tbody = document.createElement("tbody");
+
+              // Get keys of transactions and sort them in descending order (latest first)
+              const sortedTransactionKeys = Object.keys(data).sort((a, b) => {
+                  return new Date(data[b].currentTime) - new Date(data[a].currentTime);
+              });
+
+              // Iterate over each transaction
+              sortedTransactionKeys.forEach(transactionId => {
+                  const transactionData = data[transactionId];
+
+                  // Create a row for each transaction
+                  const tr = document.createElement("tr");
+
+                  // Add transaction data to the row
+                  const tdDate = document.createElement("td");
+                  tdDate.textContent = transactionData.date;
+
+                  const tdAmount = document.createElement("td");
+                  tdAmount.textContent = transactionData.amount;
+
+                  const tdPayer = document.createElement("td");
+                  tdPayer.textContent = transactionData.payer;
+
+                  const tdRegNo = document.createElement("td");
+                  tdRegNo.textContent = transactionData.regNo;
+
+                  tr.appendChild(tdDate);
+                  tr.appendChild(tdAmount);
+                  tr.appendChild(tdPayer);
+                  tr.appendChild(tdRegNo);
+
+                  // Append the row to the table body
+                  tbody.appendChild(tr);
+              });
+
+              // Append the table body to the table
+              table.appendChild(tbody);
+
+              // Append the table to the table container
+              tableContainer.appendChild(table);
+          }
+      });
+  }
+
+  // Function to register listener for notifications
+  function registerNotificationsListener(notificationsRef, notificationsContainer) {
+      // Listen for changes in the notifications in real-time
+      notificationsRef.on("value", function (snapshot) {
+          const notifications = snapshot.val();
+
+          // Clear existing content in the notifications container
+          notificationsContainer.innerHTML = "";
+
+          if (notifications) {
+              // Create a div element to hold notifications
+              const notificationsDiv = document.createElement("div");
+
+              // Iterate over each notification
+              Object.values(notifications).forEach(notification => {
+                  // Create a p element for each notification
+                  const p = document.createElement("p");
+                  p.textContent = notification.message;
+
+                  // Append the p element to the notificationsDiv
+                  notificationsDiv.appendChild(p);
+              });
+
+              // Append the notificationsDiv to the notifications container
+              notificationsContainer.appendChild(notificationsDiv);
+          }
+      });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize Firebase
+  // Make sure to include your Firebase configuration here
+
+  // Reference to the "notifications" node in the Firebase Realtime Database
+  const notificationsRef = firebase.database().ref("notifications");
+
+  // Container for notifications
+  const notificationsContainer = document.getElementById("notifications");
+
+  // Listen for changes in the notifications in real-time
+  notificationsRef.on("value", function (snapshot) {
+      const notifications = snapshot.val();
+
+      // Clear existing content in the notifications container
+      notificationsContainer.innerHTML = "";
+
+      if (notifications) {
+          // Create a div element to hold notifications
+          const notificationsDiv = document.createElement("div");
+
+          // Get keys of notifications and sort them in descending order (latest first)
+          const sortedNotificationKeys = Object.keys(notifications).sort((a, b) => {
+              return new Date(notifications[b].time) - new Date(notifications[a].time);
+          });
+
+          // Iterate over each notification
+          sortedNotificationKeys.forEach(notificationId => {
+              const notificationData = notifications[notificationId];
+
+              // Create a p element for each notification
+              const p = document.createElement("p");
+              p.textContent = `${notificationData.message} - ${new Date(notificationData.time).toLocaleString()}`;
+
+              // Append the p element to the notificationsDiv
+              notificationsDiv.appendChild(p);
+          });
+
+          // Append the notificationsDiv to the notifications container
+          notificationsContainer.appendChild(notificationsDiv);
+      }
+  });
+});
